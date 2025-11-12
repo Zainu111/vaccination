@@ -165,8 +165,8 @@ const ComparisonTable = ({
 
     return (
       <span
-        className={`inline-block p-5 rounded text-xs font-bold text-center min-w-[40px]  ${
-          isYes ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+        className={`inline-block px-3 py-2 sm:p-4 rounded-lg text-xs sm:text-sm font-bold text-center min-w-[60px] transition-colors ${
+          isYes ? "bg-green-100 text-green-800 hover:bg-green-200" : "bg-red-100 text-red-800 hover:bg-red-200"
         }`}
       >
         {isYes ? (
@@ -293,23 +293,23 @@ const ComparisonTable = ({
   );
 
   return (
-    <div className="comparison-wrapper text-center py-10 px-5 bg-gray-50 min-h-[60vh]">
+    <div className="comparison-wrapper text-center py-6 sm:py-10 px-3 sm:px-5 bg-gray-50 min-h-[60vh]">
       <div
-        className="w-full max-w-[1480px] mx-auto rounded-lg shadow-sm bg-white"
+        className="w-full max-w-[1480px] mx-auto rounded-lg shadow-lg bg-white border border-gray-200"
         style={{
           overflowX: "auto",
           overflowY: "auto",
-          maxHeight: "75vh", // 👈 Adjust as needed
+          maxHeight: "75vh",
         }}
       >
         <table
           style={{ width: `${width}px`, minWidth: "100%" }}
-          className="border-separate border-spacing-2 my-5 font-sans"
+          className="border-separate border-spacing-2 my-3 sm:my-5 font-sans text-sm sm:text-base"
         >
           <thead className="sticky top-0 z-20 bg-white">
             <tr>
               <th
-                style={{ width: "350px" }}
+                style={{ width: "250px", minWidth: "200px" }}
                 className="sticky top-0 z-30 bg-white"
               ></th>
               {displayCountries.map((country, i) => {

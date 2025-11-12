@@ -2,7 +2,9 @@ import React from "react";
 import { getFlagUrl } from "../../utils/countryUtils";
 
 const CountryOption = ({ country, isSelected, onClick }) => (
-  <label className="max-w-full relative flex flex-col items-center p-4 px-2 bg-white rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.1)] cursor-pointer transition-all border-2 border-transparent hover:border-gray-300 hover:-translate-y-0.5">
+  <label className={`max-w-full relative flex flex-col items-center p-3 sm:p-4 px-2 bg-white rounded-xl shadow-md cursor-pointer transition-all border-2 hover:shadow-lg hover:-translate-y-1 ${
+    isSelected ? 'border-green-500 bg-green-50' : 'border-transparent hover:border-gray-300'
+  }`}>
     <input
       type="checkbox"
       name="country"
@@ -33,15 +35,13 @@ const CountryOption = ({ country, isSelected, onClick }) => (
       )}
     </span>
 
-    {/* Country flag */}
     <img
       src={getFlagUrl(country)}
       alt={country}
-      className="w-10 h-auto mb-2"
+      className="w-8 sm:w-10 h-auto mb-2"
     />
 
-    {/* Country name */}
-    <div className="text-center text-sm font-medium">{country}</div>
+    <div className="text-center text-xs sm:text-sm font-medium text-gray-800">{country}</div>
   </label>
 );
 

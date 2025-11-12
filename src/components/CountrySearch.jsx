@@ -41,7 +41,7 @@ const CountrySearch = ({
   };
 
   return (
-    <section className="bg-[#f4f6fc] py-6 sm:py-10 px-4 sm:px-5 text-center">
+    <section className="bg-gradient-to-b from-[#f4f6fc] to-white py-6 sm:py-10 px-4 sm:px-5 text-center">
       {/* Toggle Buttons */}
       <div className="flex flex-col sm:flex-row gap-2 mb-5 flex-wrap justify-center items-center max-w-max mx-auto">
         {/* All Countries Button */}
@@ -49,44 +49,42 @@ const CountrySearch = ({
           onClick={() => {
             setShowByContinent(false);
             setShowAllCountries(true);
-            setCountryFilterQuery(""); // reset search
+            setCountryFilterQuery("");
           }}
-          className={`px-4 py-2 text-xl rounded border-2 border-[#d17728] shadow-md transition-colors duration-300 ${
+          className={`px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-lg lg:text-xl rounded-lg border-2 border-[#d17728] shadow-md transition-all duration-300 font-medium ${
             !showByContinent
               ? "bg-[#d17728] text-white"
-              : "bg-gray-100 text-black hover:bg-[#ffe9d5]"
+              : "bg-gray-100 text-black hover:bg-[#ffe9d5] hover:shadow-lg"
           }`}
         >
           Search by Country
         </button>
 
-        {/* Continents Button */}
         <button
           onClick={() => {
             setShowByContinent(true);
             setShowAllCountries(false);
-            setCountryFilterQuery(""); // reset search
+            setCountryFilterQuery("");
           }}
-          className={`px-4 py-2 text-xl rounded border-2 border-[#d17728] shadow-md transition-colors duration-300 ${
+          className={`px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-lg lg:text-xl rounded-lg border-2 border-[#d17728] shadow-md transition-all duration-300 font-medium ${
             showByContinent
               ? "bg-[#d17728] text-white"
-              : "bg-gray-100 text-black hover:bg-[#ffe9d5]"
+              : "bg-gray-100 text-black hover:bg-[#ffe9d5] hover:shadow-lg"
           }`}
         >
           Search by Continent
         </button>
       </div>
 
-      {/* Search Input */}
       <div className="relative max-w-[700px] mx-auto mb-7 w-full">
         <input
           type="text"
           placeholder={`Search ${showByContinent ? "countries by continent" : "countries"}...`}
           value={countryFilterQuery}
           onChange={(e) => setCountryFilterQuery(e.target.value)}
-          className="w-full py-3 pr-11 pl-4 text-base border-2 border-[#e1e5e9] rounded-xl bg-white transition-all focus:outline-none focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(0,120,212,0.1)]"
+          className="w-full py-3 sm:py-3.5 pr-11 pl-4 text-sm sm:text-base border-2 border-[#e1e5e9] rounded-xl bg-white transition-all focus:outline-none focus:border-[#d17728] focus:shadow-[0_0_0_3px_rgba(209,119,40,0.1)] hover:border-gray-400"
         />
-        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-base text-gray-600 pointer-events-none">
+        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-base text-gray-500 pointer-events-none">
           🔍
         </span>
       </div>

@@ -28,10 +28,10 @@ const Popup = ({ popup, onClose }) => {
         };
       default:
         return {
-          gradient: "from-blue-500 to-purple-600",
-          iconBg: "from-blue-100 to-purple-200",
+          gradient: "from-blue-500 to-blue-600",
+          iconBg: "from-blue-100 to-blue-200",
           icon: "ℹ",
-          buttonColor: "bg-purple-600 hover:bg-purple-700"
+          buttonColor: "bg-blue-600 hover:bg-blue-700"
         };
     }
   };
@@ -44,7 +44,7 @@ const Popup = ({ popup, onClose }) => {
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1000] animate-[fadeIn_0.3s_ease-out]"
         onClick={onClose}
       />
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-[0_25px_50px_rgba(0,0,0,0.25)] z-[1001] min-w-[380px] max-w-[480px] text-center overflow-hidden animate-[popIn_0.4s_cubic-bezier(0.68,-0.55,0.265,1.55)]">
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-[0_25px_50px_rgba(0,0,0,0.25)] z-[1001] w-[90%] max-w-[480px] min-w-[280px] text-center overflow-hidden animate-[popIn_0.4s_cubic-bezier(0.68,-0.55,0.265,1.55)]">
         <div className={`bg-gradient-to-br ${config.gradient} p-8 pb-6 text-white`}>
           <div className={`w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br ${config.iconBg} flex items-center justify-center text-3xl font-bold text-gray-800 border-4 border-white/30 shadow-[0_8px_16px_rgba(0,0,0,0.1)]`}>
             {config.icon}
