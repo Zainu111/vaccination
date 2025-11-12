@@ -1,26 +1,7 @@
 @import "tailwindcss";
-
 @theme {
-  --color-primary: #d17728;
-  --color-primary-hover: #b5641f;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  --color-primary:#d17728;
+  --color-primary-hover:#b5641f;
 }
 
 
@@ -30,9 +11,10 @@ body {
   .rotate-animation {
     animation: rotate 6s linear infinite;
   }
-
-  .first-letter-cap::first-letter {
-    text-transform: uppercase;
+  .first-letter-cap {
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 }
 

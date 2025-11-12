@@ -56,23 +56,23 @@ const FeedbackModal = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[1001] p-4 sm:p-5"
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[1001] p-5"
       onClick={(e) => {
         if (e.target === e.currentTarget) setIsFeedbackOpen(false);
       }}
     >
-      <div className="relative w-full max-w-[600px] bg-white rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto">
-        <div className="flex flex-col items-center p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-gray-200 shadow-md bg-gradient-to-br from-white to-[#fdf6f1] relative">
+      <div className="relative w-full max-w-[600px] bg-white rounded-2xl shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
+        <div className="flex flex-col items-center p-5 rounded-3xl border border-gray-200 shadow-md bg-gradient-to-br from-white to-[#fdf6f1] relative">
           {/* Close button */}
-          <button
-            className="absolute top-3 right-4 sm:top-4 sm:right-5 text-2xl sm:text-3xl cursor-pointer text-gray-500 hover:text-gray-800 transition-colors leading-none"
+          <span
+            className="absolute top-4 right-5 text-2xl cursor-pointer text-gray-500 hover:text-gray-800 transition-colors"
             onClick={() => setIsFeedbackOpen(false)}
-            aria-label="Close feedback form"
           >
             &times;
-          </button>
+          </span>
 
-          <p className="text-xs sm:text-sm text-gray-700 text-left mb-4 sm:mb-6 leading-relaxed">
+          {/* Info text */}
+          <p className="text-[clamp(13px,2.5vw,15px)] text-gray-700 text-left mb-6 leading-relaxed">
             <span className="font-semibold text-[var(--color-primary)]">
               We value your feedback!
             </span>{" "}
@@ -80,9 +80,10 @@ const FeedbackModal = ({
             or spot something we missed, please share it with us.
           </p>
 
+          {/* Feedback form */}
           <form className="w-full flex flex-col gap-3" onSubmit={handleFeedbackSubmit}>
             <input
-              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
+              className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
               type="text"
               name="name"
               required
@@ -91,7 +92,7 @@ const FeedbackModal = ({
               onChange={handleFeedbackChange}
             />
             <input
-              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
+              className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
               type="email"
               name="email"
               required
@@ -100,10 +101,11 @@ const FeedbackModal = ({
               onChange={handleFeedbackChange}
             />
 
+            {/* Searchable Country Input */}
             <div className="relative">
               <input
                 type="text"
-                className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
+                className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
                 placeholder="Select a country"
                 value={search || feedbackForm.country}
                 onChange={(e) => {
@@ -115,26 +117,26 @@ const FeedbackModal = ({
                 readOnly={false}
               />
               {showList && (
-                <ul className="absolute top-full left-0 w-full max-h-40 overflow-y-auto bg-white border border-gray-300 rounded-lg mt-1 shadow-lg z-10">
+                <ul className="absolute top-full left-0 w-full max-h-40 overflow-y-auto bg-white border border-gray-300 rounded-lg mt-1 shadow-md z-10">
                   {filteredCountries.length > 0 ? (
                     filteredCountries.map((country) => (
                       <li
                         key={country}
-                        className="px-3 py-2 text-sm cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition"
+                        className="px-3 py-2 cursor-pointer hover:bg-[var(--color-primary)] hover:text-white transition"
                         onClick={() => handleCountrySelect(country)}
                       >
                         {country}
                       </li>
                     ))
                   ) : (
-                    <li className="px-3 py-2 text-sm text-gray-500">No matches</li>
+                    <li className="px-3 py-2 text-gray-500">No matches</li>
                   )}
                 </ul>
               )}
             </div>
 
             <textarea
-              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg text-sm min-h-[80px] sm:min-h-[100px] resize-y focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
+              className="w-full p-3 border border-gray-300 rounded-lg text-sm min-h-[100px] resize-y focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition"
               name="message"
               required
               placeholder="Message"
@@ -142,7 +144,8 @@ const FeedbackModal = ({
               onChange={handleFeedbackChange}
             />
 
-            <div className="flex justify-center gap-2 sm:gap-3 items-center flex-wrap mt-2">
+            {/* File upload + submit */}
+            <div className="flex justify-center gap-3 items-center flex-wrap">
               <input
                 type="file"
                 id="attachment"
@@ -152,14 +155,14 @@ const FeedbackModal = ({
               />
               <button
                 type="button"
-                className="bg-gray-100 text-gray-700 py-2 px-4 sm:px-5 rounded-lg text-xs sm:text-sm border border-gray-300 hover:bg-gray-200 transition"
+                className="bg-gray-100 text-gray-700 py-2 px-5 rounded-lg text-sm border border-gray-300 hover:bg-gray-200 transition"
                 onClick={() => document.getElementById("attachment").click()}
               >
                 📎 Attachment
               </button>
               <button
                 type="submit"
-                className="bg-[var(--color-primary)] py-2 px-4 sm:px-5 text-white cursor-pointer rounded-lg text-xs sm:text-sm font-medium transition hover:bg-[var(--color-primary-hover)] shadow-md hover:shadow-lg"
+                className="bg-[var(--color-primary)] py-2 px-5 text-white cursor-pointer rounded-lg text-sm font-medium transition hover:bg-[var(--color-primary-hover)]"
               >
                 🚀 Let&apos;s go!
               </button>
