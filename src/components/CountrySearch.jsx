@@ -94,7 +94,7 @@ const CountrySearch = ({
         {!showByContinent ? (
           <>
             {/* All Countries View */}
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-3 sm:gap-5 max-w-7xl mx-auto px-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 max-w-7xl mx-auto px-2">
               {countriesToShow.map((country) => (
                 <CountryOption
                   key={country}
@@ -155,7 +155,7 @@ const CountrySearch = ({
                     />
                   </div>
 
-                  <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-3 sm:gap-5 pt-4 sm:pt-8 max-w-7xl mx-auto px-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 pt-4 max-w-7xl mx-auto px-2">
                     {filteredContinentCountries.map((country) => (
                       <CountryOption
                         key={country}
